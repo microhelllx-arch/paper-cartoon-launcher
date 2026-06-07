@@ -1,10 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ MICRØ OS</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111;
+color:white;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.phone{
+width:350px;
+height:700px;
+background:#1a1a1a;
+border-radius:30px;
+padding:20px;
+box-sizing:border-box;
+}
+
+#clock{
+font-size:48px;
+text-align:center;
+margin-top:20px;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.app{
+background:#2a2a2a;
+border-radius:20px;
+padding:20px 10px;
+text-align:center;
+font-size:14px;
+cursor:pointer;
+}
+
+.app:hover{
+transform:scale(1.05);
+}
+
+.dock{
+position:absolute;
+bottom:30px;
+display:flex;
+gap:15px;
+}
+
+a{
+text-decoration:none;
+color:white;
+}
+</style>
 </head>
 <body>
-<h1>Hello Bro 🚀</h1>
-<p>My first GitHub website</p>
+
+<div class="phone">
+<div id="clock">00:00</div>
+
+<div class="grid">
+<div class="app" onclick="window.open('https://youtube.com')">📺<br>YouTube</div>
+<div class="app" onclick="window.open('https://google.com')">🌐<br>Browser</div>
+<div class="app">🎵<br>Music</div>
+<div class="app">📷<br>Camera</div>
+<div class="app">💬<br>Chat</div>
+<div class="app">⚙️<br>Settings</div>
+</div>
+</div>
+
+<script>
+function updateClock(){
+let now=new Date();
+let h=String(now.getHours()).padStart(2,'0');
+let m=String(now.getMinutes()).padStart(2,'0');
+document.getElementById('clock').innerText=h+':'+m;
+}
+updateClock();
+setInterval(updateClock,1000);
+</script>
+
 </body>
 </html>
